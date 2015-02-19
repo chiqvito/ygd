@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+
+		<h1>Order #{order.product.name}</h1>
+
+		<h:form id="reg">
+			<h:panelGrid columns="3" columnClasses="titleCell">
+				<h:outputLabel for="quantity" value="Quantity:" />
+				<h:inputText id="quantity" value="#{order.newOrder.quantity}" />
+				<h:message for="quantity" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="2">
+				<h:commandButton id="order" action="#{order.register}" value="Order" />
+				<h:messages globalOnly="true" />
+			</h:panelGrid>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

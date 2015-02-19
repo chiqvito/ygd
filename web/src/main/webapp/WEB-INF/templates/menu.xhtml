@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+	<h:outputLink value="#{request.contextPath}">
+		<h:outputText value="Home" />
+	</h:outputLink>
+	<br />
+	<h:outputLink value="#{request.contextPath}/products.jsf">
+		<h:outputText value="Products" />
+	</h:outputLink>
+	<br />
+	<h:outputLink value="#{request.contextPath}/orders.jsf">
+		<h:outputText value="Orders" />
+	</h:outputLink>
+
+</ui:composition>

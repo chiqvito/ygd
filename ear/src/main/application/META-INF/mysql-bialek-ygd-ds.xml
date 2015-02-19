@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
+	<datasource jndi-name="java:jboss/datasources/MySQLbialekygdDS"
+		pool-name="mysql-bialek-ygd-pool" enabled="true" use-java-context="true">
+		<connection-url>jdbc:mysql://localhost:3306/bialekygd</connection-url>
+		<driver-class>com.mysql.jdbc.Driver</driver-class>
+		<driver>mysql</driver>
+		<pool>
+			<min-pool-size>1</min-pool-size>
+			<max-pool-size>20</max-pool-size>
+		</pool>
+		<security>
+			<user-name>bialekygd</user-name>
+			<password>bialekygd</password>
+		</security>
+	</datasource>
+</datasources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+
+		<h1>List of products</h1>
+
+		<h:form>
+			<h:panelGroup rendered="#{products.dataModel.rowCount > 0}">
+				<h:dataTable value="#{products.dataModel}" var="item" cellspacing="0" cellpadding="5" border="1" frame="box">
+					<h:column>
+						<h:outputText value="#{item.name}" />
+					</h:column>
+					<h:column>
+						<h:commandButton action="#{order.order(item)}" value="Order" />
+					</h:column>
+				</h:dataTable>
+				<h:commandLink action="#{products.previous}" value="Previous #{products.pagination.pageSize}" rendered="#{products.pagination.hasPreviousPage}" />
+				<h:outputText value=" #{products.pagination.pageFirstItem + 1}..#{products.pagination.pageLastItem + 1}/#{products.pagination.itemsCount} " />
+				<h:commandLink action="#{products.next}" value="Next #{products.pagination.pageSize}" rendered="#{products.pagination.hasNextPage}" />
+			</h:panelGroup>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

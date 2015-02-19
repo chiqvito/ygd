@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+
+		<h1>List of orders</h1>
+
+		<h:form>
+			<h:panelGroup rendered="#{orders.dataModel.rowCount > 0}">
+				<h:dataTable value="#{orders.dataModel}" var="item" cellspacing="0" cellpadding="5" border="1" frame="box">
+					<h:column>
+						<f:facet name="header">Product</f:facet>   
+						<h:outputText value="#{item.product.name}" />
+					</h:column>
+					<h:column>
+					    <f:facet name="header">Quantity</f:facet>
+						<h:outputText value="#{item.quantity}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Create date</f:facet>
+						<h:outputText value="#{item.createDate}">
+							<f:convertDateTime pattern="d-M-yyyy HH:mm" />
+						</h:outputText>
+					</h:column>
+				</h:dataTable>
+				<h:commandLink action="#{orders.previous}" value="Previous #{orders.pagination.pageSize}" rendered="#{orders.pagination.hasPreviousPage}" />
+				<h:outputText value=" #{orders.pagination.pageFirstItem + 1}..#{orders.pagination.pageLastItem + 1}/#{orders.pagination.itemsCount} " />
+				<h:commandLink action="#{orders.next}" value="Next #{orders.pagination.pageSize}" rendered="#{orders.pagination.hasNextPage}" />
+			</h:panelGroup>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

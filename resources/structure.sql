@@ -1,0 +1,15 @@
+CREATE TABLE products
+(
+  id serial PRIMARY KEY NOT NULL,
+  name VARCHAR(255) NULL
+) ENGINE InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+CREATE TABLE orders
+(
+  id serial PRIMARY KEY NOT NULL,
+  product_id BIGINT UNSIGNED NOT NULL,
+  createdate TIMESTAMP NOT NULL DEFAULT now(),
+  quantity BIGINT UNSIGNED NOT NULL
+) ENGINE InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+ALTER TABLE orders ADD CONSTRAINT fk_orders_product_id FOREIGN KEY (product_id) REFERENCES products(id);
