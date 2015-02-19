@@ -70,6 +70,14 @@ mvn clean package wildfly:deploy
 ```
 This will deploy `ear/target/bialek-ygd-ear.ear` to the running instance of the server.
 
+If something goes wrong with connection to running server simply run 
+
+```
+mvn clean package
+```
+
+and copy `ear/target/bialek-ygd-ear.ear` to `jboss-7.1.1.Final/standalone/deployments`
+
 Access the application 
 ---------------------
 
